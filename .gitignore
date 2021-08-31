@@ -1,0 +1,15 @@
+*.swo
+*.swp
+*.config
+*.files
+*.includes
+*.cflags
+*.cxxflags
+*.autosave
+.vscode
+.ccls-cache
+.DS_Store
+.cache
+.clang_complete
+.clangd
+.vim/
