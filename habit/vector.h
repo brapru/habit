@@ -7,7 +7,6 @@
 #pragma once
 
 #include <cassert>
-#include <utility>
 
 namespace habit {
 
@@ -43,7 +42,10 @@ public:
     unsigned size() const { return m_size; }
     unsigned capacity() const { return m_data ? m_capacity : 0; }
     bool is_empty() const { return size() == 0; }
+
     T at(int index) { return m_data[index]; }
+    T front(void) { return m_data[0]; }
+    T back(void) { return m_data[m_size - 1]; }
 
     void push_back(T value)
     {
@@ -51,6 +53,12 @@ public:
 
         m_data[m_size] = std::move(value);
         m_size++;
+    }
+
+    void pop_back()
+    {
+        m_size--;
+        m_data[m_size].~T();
     }
 
 private:
