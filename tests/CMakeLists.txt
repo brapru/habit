@@ -1,5 +1,3 @@
-add_library(habit INTERFACE)
-
 target_compile_features(habit INTERFACE cxx_std_20)
 
 target_include_directories(
