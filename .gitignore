@@ -12,5 +12,9 @@
 .cache
 .clang_complete
 .clangd
+.idea/
 .vim/
+
 build/
+
+cmake-build-debug/
