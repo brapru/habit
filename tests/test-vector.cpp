@@ -20,6 +20,16 @@ static void test_push_back(void)
     EXPECT(test.size() == 1);
 }
 
+static void test_large_push_back(void)
+{
+    habit::vector<int> test;
+
+    for (int i = 0; i < 1000; i++)
+        test.push_back(1);
+
+    EXPECT(test.size() == 1000);
+}
+
 static void test_at(void)
 {
     habit::vector<int> test;
@@ -67,6 +77,7 @@ void test_vector(void)
 {
     test_construct();
     test_push_back();
+    test_large_push_back();
     test_pop_back();
     test_at();
     test_front();

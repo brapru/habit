@@ -64,7 +64,7 @@ public:
 private:
     void ensure_capacity(size_t size)
     {
-        if (size == capacity())
+        if (capacity() >= size)
             return;
 
         unsigned new_capacity = get_padded_capacity();
