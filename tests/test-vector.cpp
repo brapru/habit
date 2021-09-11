@@ -1,5 +1,6 @@
-#include "habit/vector.h"
 #include "test-habit.h"
+
+#include "habit/vector.h"
 
 static void test_construct(void)
 {
