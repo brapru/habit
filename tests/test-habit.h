@@ -9,7 +9,7 @@
 #include <iostream>
 #include <random>
 
-#include "habit/utils.h"
+#include <habit/utils.h>
 
 #define RANDOM_INT(max) ({                          \
     int retval;                                     \

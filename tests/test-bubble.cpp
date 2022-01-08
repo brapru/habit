@@ -6,8 +6,8 @@
 
 #include "test-habit.h"
 
-#include "habit/bubble_sort.h"
-#include "habit/vector.h"
+#include <habit/bubble_sort.h>
+#include <habit/vector.h>
 
 void test_bubble_sort(void)
 {
