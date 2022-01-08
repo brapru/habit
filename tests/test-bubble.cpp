@@ -4,19 +4,23 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "test-habit.h"
+#include <gtest/gtest.h>
 
 #include <habit/bubble_sort.h>
 #include <habit/vector.h>
 
-void test_bubble_sort(void)
+TEST(TestBubble, TestSorted)
 {
     habit::vector<int> test;
-    for (int loop = 0; loop < 10; loop++) {
-        test.push_back(RANDOM_INT(100));
+    for (int loop = 10; loop >= 0; loop--) {
+        std::cout << loop << "\n";
+        test.push_back(loop);
     }
 
     bubble_sort(test);
 
-    EXPECT_SORTED(test);
+    for (int i = 0; i < test.size() - 1; i++) {
+        std::cout << test[i] << '\n';
+        EXPECT_EQ((test[i] <= test[i + 1]), true);
+    }
 }

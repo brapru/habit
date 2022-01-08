@@ -1,36 +1,36 @@
-#include "test-habit.h"
+#include <gtest/gtest.h>
 
 #include <habit/vector.h>
 
-static void test_construct(void)
+TEST(TestVector, TestConstruct)
 {
     habit::vector<int> test;
 
-    EXPECT(test.is_empty());
-    EXPECT(test.size() == 0);
+    EXPECT_EQ(test.is_empty(), true);
+    EXPECT_EQ(test.size(), 0);
 }
 
-static void test_push_back(void)
+TEST(TestVector, TestPushBack)
 {
     habit::vector<int> test;
 
     test.push_back(1);
 
-    EXPECT(!test.is_empty());
-    EXPECT(test.size() == 1);
+    EXPECT_EQ(!test.is_empty(), true);
+    EXPECT_EQ(test.size(), 1);
 }
 
-static void test_large_push_back(void)
+TEST(TestVector, TestLargePushBack)
 {
     habit::vector<int> test;
 
     for (int i = 0; i < 1000; i++)
         test.push_back(1);
 
-    EXPECT(test.size() == 1000);
+    EXPECT_EQ(test.size(), 1000);
 }
 
-static void test_at(void)
+TEST(TestVector, TestAt)
 {
     habit::vector<int> test;
 
@@ -38,12 +38,12 @@ static void test_at(void)
     test.push_back(1);
     test.push_back(2);
 
-    EXPECT(test.at(0) == 0);
-    EXPECT(test.at(1) == 1);
-    EXPECT(test.at(2) == 2);
+    EXPECT_EQ(test.at(0), 0);
+    EXPECT_EQ(test.at(1), 1);
+    EXPECT_EQ(test.at(2), 2);
 }
 
-static void test_pop_back(void)
+TEST(TestVector, TestPopBack)
 {
     habit::vector<int> test;
 
@@ -51,35 +51,24 @@ static void test_pop_back(void)
     test.push_back(1);
     test.pop_back();
 
-    EXPECT(test.size() == 1);
+    EXPECT_EQ(test.size(), 1);
 }
 
-static void test_front(void)
+TEST(TestVector, TestFront)
 {
     habit::vector<int> test;
 
     test.push_back(0);
 
-    EXPECT(test.front() == 0);
+    EXPECT_EQ(test.front(), 0);
 }
 
-static void test_back(void)
+TEST(TestVector, TestBack)
 {
     habit::vector<int> test;
 
     test.push_back(0);
     test.push_back(1);
 
-    EXPECT(test.back() == 1);
-}
-
-void test_vector(void)
-{
-    test_construct();
-    test_push_back();
-    test_large_push_back();
-    test_pop_back();
-    test_at();
-    test_front();
-    test_back();
+    EXPECT_EQ(test.back(), 1);
 }

@@ -4,15 +4,10 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "test-habit.h"
+#include <gtest/gtest.h>
 
-void test_vector();
-void test_bubble_sort();
-
-int main(void)
+int main(int argc, char** argv)
 {
-    test_vector();
-    test_bubble_sort();
-
-    return 0;
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
