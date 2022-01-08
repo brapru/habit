@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022, Brandon Pruitt <brapru@pm.me>
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
+
 #include <gtest/gtest.h>
 
 #include <habit/vector.h>

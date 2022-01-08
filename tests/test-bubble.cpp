@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Brandon Pruitt <brapru@pm.me>
+ * Copyright (c) 2022, Brandon Pruitt <brapru@pm.me>
  *
  * SPDX-License-Identifier: BSD-2-Clause
  */
