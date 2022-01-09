@@ -13,14 +13,12 @@ TEST(TestBubble, TestSorted)
 {
     habit::vector<int> test;
     for (int loop = 10; loop >= 0; loop--) {
-        std::cout << loop << "\n";
         test.push_back(loop);
     }
 
     bubble_sort(test);
 
     for (int i = 0; i < test.size() - 1; i++) {
-        std::cout << test[i] << '\n';
         EXPECT_EQ((test[i] <= test[i + 1]), true);
     }
 }
