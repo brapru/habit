@@ -13,7 +13,7 @@ namespace habit {
 template<typename T>
 class vector {
 public:
-    vector() { }
+    vector() = default;
     ~vector() { delete[] m_data; }
 
     vector(unsigned capacity)
