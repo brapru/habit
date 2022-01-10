@@ -8,12 +8,19 @@
 
 #include <habit/vector.h>
 
-TEST(TestVector, TestConstruct)
+TEST(TestVector, TestConstructEmpty)
 {
     habit::vector<int> test;
 
     EXPECT_EQ(test.is_empty(), true);
     EXPECT_EQ(test.size(), 0);
+}
+
+TEST(TestVector, TestConstructorWithCapacity)
+{
+    habit::vector<int> test(10);
+
+    EXPECT_EQ(test.capacity(), 10);
 }
 
 TEST(TestVector, TestPushBack)
