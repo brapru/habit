@@ -61,6 +61,20 @@ public:
         m_data[m_size].~T();
     }
 
+    void insert(int index, T value)
+    {
+        assert(index >= 0 && index < size());
+
+        ensure_capacity(m_size + 1);
+
+        for (unsigned i = m_size; i > index; i--) {
+            m_data[i] = m_data[i - 1];
+        }
+
+        m_data[index] = std::move(value);
+        m_size++;
+    }
+
 private:
     void ensure_capacity(size_t size)
     {
