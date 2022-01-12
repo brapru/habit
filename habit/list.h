@@ -29,8 +29,11 @@ public:
         , m_size(0)
     {
     }
-    // TODO: Delete memory of each node
-    ~list() {};
+
+    ~list()
+    {
+        m_destroy(m_head);
+    };
 
     int size() const { return m_size; }
     bool empty() const { return m_size == 0; }
@@ -69,6 +72,15 @@ private:
     Node<T>* m_head;
     Node<T>* m_tail;
     size_t m_size;
+
+    void m_destroy(Node<T>* node)
+    {
+        if (node == nullptr)
+            return;
+
+        m_destroy(node->next);
+        delete node;
+    }
 };
 
 };
