@@ -89,6 +89,18 @@ public:
         m_size++;
     }
 
+    void erase(int const index)
+    {
+        assert(index >= 0 && index < m_size);
+
+        auto prev = m_traverse_and_retrieve_node(index - 1);
+        auto to_delete = prev->next;
+        prev->next = prev->next->next;
+
+        delete to_delete;
+        m_size--;
+    }
+
 private:
     Node<T>* m_head;
     Node<T>* m_tail;

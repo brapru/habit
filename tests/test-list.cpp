@@ -82,3 +82,21 @@ TEST(TestList, TestInsert)
     EXPECT_EQ(test.at(2), 3);
     EXPECT_EQ(test.at(3), 4);
 }
+
+TEST(TestList, TestErase)
+{
+    habit::list<int> test;
+
+    test.push_back(1);
+    test.push_back(2);
+    test.push_back(3);
+    test.push_back(4);
+    test.push_back(5);
+    test.erase(1);
+    test.erase(1);
+    test.erase(1);
+
+    EXPECT_EQ(test.size(), 2);
+    EXPECT_EQ(test.at(0), 1);
+    EXPECT_EQ(test.at(1), 5);
+}
