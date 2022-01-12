@@ -67,3 +67,18 @@ TEST(TestList, TestAtInvalidIndex)
     EXPECT_DEATH({ test.at(-1); }, "failed");
     EXPECT_DEATH({ test.at(4); }, "failed");
 }
+
+TEST(TestList, TestInsert)
+{
+    habit::list<int> test;
+
+    test.push_back(1);
+    test.push_back(4);
+    test.insert(1, 3);
+    test.insert(1, 2);
+
+    EXPECT_EQ(test.at(0), 1);
+    EXPECT_EQ(test.at(1), 2);
+    EXPECT_EQ(test.at(2), 3);
+    EXPECT_EQ(test.at(3), 4);
+}

@@ -83,6 +83,19 @@ public:
         return current->data;
     }
 
+    void insert(int const index, T const value)
+    {
+        assert(index >= 0 && index < m_size);
+
+        auto node = new Node<T>(value);
+        auto prev = m_traverse_and_retrieve_node(index - 1);
+
+        node->next = prev->next;
+        prev->next = node;
+
+        m_size++;
+    }
+
 private:
     Node<T>* m_head;
     Node<T>* m_tail;
@@ -95,6 +108,19 @@ private:
 
         m_destroy(node->next);
         delete node;
+    }
+
+    Node<T>* m_traverse_and_retrieve_node(int const index)
+    {
+        int i = 0;
+        Node<T>* current = m_head;
+
+        while (i < index && current != nullptr) {
+            current = current->next;
+            i++;
+        }
+
+        return current;
     }
 };
 
