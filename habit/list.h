@@ -72,15 +72,8 @@ public:
     {
         assert(index >= 0 && index < m_size);
 
-        int i = 0;
-        Node<T>* current = m_head;
-
-        while (i < index && current != nullptr) {
-            current = current->next;
-            i++;
-        }
-
-        return current->data;
+        auto node = m_traverse_and_retrieve_node(index);
+        return node->data;
     }
 
     void insert(int const index, T const value)
