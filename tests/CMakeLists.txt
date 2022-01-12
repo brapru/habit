@@ -10,7 +10,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(test-habit test-vector.cpp test-bubble.cpp)
+add_executable(test-habit test-vector.cpp test-bubble.cpp test-list.cpp)
 target_link_libraries(test-habit LINK_PUBLIC libhabit gtest_main)
 
 include(GoogleTest)
