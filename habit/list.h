@@ -68,6 +68,21 @@ public:
         m_size++;
     }
 
+    T at(int const index)
+    {
+        assert(index >= 0 && index < m_size);
+
+        int i = 0;
+        Node<T>* current = m_head;
+
+        while (i < index && current != nullptr) {
+            current = current->next;
+            i++;
+        }
+
+        return current->data;
+    }
+
 private:
     Node<T>* m_head;
     Node<T>* m_tail;

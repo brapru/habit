@@ -42,3 +42,28 @@ TEST(TestList, TestPushBack)
     EXPECT_EQ(test.size(), 5);
     EXPECT_EQ(test.back(), 5);
 }
+
+TEST(TestList, TestAt)
+{
+    habit::list<int> test;
+
+    test.push_back(1);
+    test.push_back(2);
+    test.push_back(3);
+
+    EXPECT_EQ(test.at(0), 1);
+    EXPECT_EQ(test.at(1), 2);
+    EXPECT_EQ(test.at(2), 3);
+}
+
+TEST(TestList, TestAtInvalidIndex)
+{
+    habit::list<int> test;
+
+    test.push_back(1);
+    test.push_back(2);
+    test.push_back(3);
+
+    EXPECT_DEATH({ test.at(-1); }, "failed");
+    EXPECT_DEATH({ test.at(4); }, "failed");
+}
