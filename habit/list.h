@@ -101,6 +101,26 @@ public:
         m_size--;
     }
 
+    void reverse()
+    {
+        Node<T>* prev = nullptr;
+        Node<T>* current = m_head;
+        Node<T>* following = m_head;
+
+        while (current != nullptr) {
+            if (prev == nullptr)
+                m_tail = current;
+
+            following = following->next;
+            current->next = prev;
+
+            prev = current;
+            current = following;
+        }
+
+        m_head = prev;
+    }
+
 private:
     Node<T>* m_head;
     Node<T>* m_tail;
