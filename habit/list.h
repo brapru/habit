@@ -129,6 +129,20 @@ public:
         m_head = prev;
     }
 
+    bool contains(T const value)
+    {
+        Node<T>* current = m_head;
+
+        while (current != nullptr) {
+            if (current->data == value)
+                return true;
+
+            current = current->next;
+        }
+
+        return false;
+    }
+
 private:
     Node<T>* m_head;
     Node<T>* m_tail;

@@ -129,3 +129,32 @@ TEST(TestList, TestReverse)
     EXPECT_EQ(test.at(1), 2);
     EXPECT_EQ(test.back(), 1);
 }
+
+TEST(TestList, TestContains)
+{
+    habit::list<int> test;
+
+    test.push_back(1);
+    test.push_back(2);
+    test.push_back(3);
+
+    EXPECT_EQ(test.contains(1), true);
+    EXPECT_EQ(test.contains(2), true);
+    EXPECT_EQ(test.contains(3), true);
+
+    test.erase(0);
+    EXPECT_EQ(test.contains(1), false);
+    EXPECT_EQ(test.contains(2), true);
+    EXPECT_EQ(test.contains(3), true);
+
+    test.erase(0);
+    EXPECT_EQ(test.contains(1), false);
+    EXPECT_EQ(test.contains(2), false);
+    EXPECT_EQ(test.contains(3), true);
+
+    test.erase(0);
+    EXPECT_EQ(test.contains(1), false);
+    EXPECT_EQ(test.contains(2), false);
+    EXPECT_EQ(test.contains(3), false);
+    EXPECT_EQ(test.size(), 0);
+}
