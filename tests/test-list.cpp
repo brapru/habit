@@ -101,6 +101,20 @@ TEST(TestList, TestErase)
     EXPECT_EQ(test.at(1), 5);
 }
 
+TEST(TestList, TestEraseAtZero)
+{
+    habit::list<int> test;
+
+    test.push_back(1);
+    test.push_back(2);
+    test.push_back(3);
+
+    test.erase(0);
+
+    EXPECT_EQ(test.size(), 2);
+    EXPECT_EQ(test.at(0), 2);
+}
+
 TEST(TestList, TestReverse)
 {
     habit::list<int> test;

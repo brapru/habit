@@ -93,11 +93,12 @@ public:
     {
         assert(index >= 0 && index < m_size);
 
-        auto prev = m_traverse_and_retrieve_node(index - 1);
-        auto to_delete = prev->next;
-        prev->next = prev->next->next;
+        auto current = m_traverse_and_retrieve_node(index);
+        auto node = current->next;
+        current->next = node->next;
+        current->data = node->data;
 
-        delete to_delete;
+        delete node;
         m_size--;
     }
 
