@@ -94,6 +94,13 @@ public:
         assert(index >= 0 && index < m_size);
 
         auto current = m_traverse_and_retrieve_node(index);
+
+        if (current->next == nullptr) {
+            delete current;
+            m_size--;
+            return;
+        }
+
         auto node = current->next;
         current->next = node->next;
         current->data = node->data;
@@ -129,7 +136,7 @@ private:
 
     void m_destroy(Node<T>* node)
     {
-        if (node == nullptr)
+        if (node == nullptr || node->next == nullptr)
             return;
 
         m_destroy(node->next);
