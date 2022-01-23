@@ -158,3 +158,66 @@ TEST(TestList, TestContains)
     EXPECT_EQ(test.contains(3), false);
     EXPECT_EQ(test.size(), 0);
 }
+
+TEST(TestList, TestRemove)
+{
+    habit::list<int> test;
+
+    test.push_back(1);
+    test.push_back(2);
+    test.push_back(2);
+    test.push_back(2);
+    test.push_back(3);
+
+    EXPECT_EQ(test.size(), 5);
+    EXPECT_EQ(test.contains(2), true);
+
+    test.remove(2);
+
+    EXPECT_EQ(test.size(), 2);
+    EXPECT_EQ(test.contains(2), false);
+}
+
+TEST(TestList, TestRemoveHead)
+{
+    habit::list<int> head;
+
+    head.push_front(2);
+    head.push_front(1);
+
+    EXPECT_EQ(head.size(), 2);
+    EXPECT_EQ(head.contains(1), true);
+
+    head.remove(1);
+
+    EXPECT_EQ(head.size(), 1);
+    EXPECT_EQ(head.contains(1), false);
+    EXPECT_EQ(head.back(), 2);
+    EXPECT_EQ(head.front(), 2);
+
+    head.remove(2);
+
+    EXPECT_EQ(head.size(), 0);
+    EXPECT_EQ(head.contains(2), false);
+}
+
+TEST(TestList, TestRemoveTail)
+{
+    habit::list<int> tail;
+
+    tail.push_back(1);
+    tail.push_back(2);
+
+    EXPECT_EQ(tail.size(), 2);
+    EXPECT_EQ(tail.contains(2), true);
+
+    tail.remove(2);
+
+    EXPECT_EQ(tail.size(), 1);
+    EXPECT_EQ(tail.contains(2), false);
+    EXPECT_EQ(tail.back(), 1);
+
+    tail.remove(1);
+
+    EXPECT_EQ(tail.size(), 0);
+}

@@ -92,21 +92,21 @@ public:
     void erase(int const index)
     {
         assert(index >= 0 && index < m_size);
-
         auto current = m_traverse_and_retrieve_node(index);
 
-        if (current->next == nullptr) {
-            delete current;
-            m_size--;
-            return;
+        m_delete_node(current);
+    }
+
+    void remove(T const value)
+    {
+        Node<T>* current = m_head;
+
+        while (current != nullptr && m_size > 0) {
+            if (current->data == value) {
+                m_delete_node(current);
+            } else
+                current = current->next;
         }
-
-        auto node = current->next;
-        current->next = node->next;
-        current->data = node->data;
-
-        delete node;
-        m_size--;
     }
 
     void reverse()
@@ -155,6 +155,58 @@ private:
 
         m_destroy(node->next);
         delete node;
+    }
+
+    void m_delete_node(Node<T>*& node)
+    {
+        if (node == m_head) {
+            if (m_head->next == nullptr) {
+                delete node;
+                node = nullptr;
+                m_head = node;
+            } else {
+                auto current = node->next;
+                node->next = current->next;
+                node->data = current->data;
+                delete current;
+                current = nullptr;
+            }
+
+            m_size--;
+
+            if (m_size <= 1)
+                m_tail = m_head;
+
+            return;
+        }
+
+        if (node == m_tail) {
+            Node<T>* prev = nullptr;
+            auto temp = m_head;
+
+            while (temp->next != nullptr) {
+                prev = temp;
+                temp = temp->next;
+            }
+
+            delete node;
+            node = nullptr;
+
+            prev->next = nullptr;
+            m_tail = prev;
+
+            m_size--;
+            return;
+        }
+
+        auto current = node->next;
+        node->next = current->next;
+        node->data = current->data;
+
+        delete current;
+        current = nullptr;
+
+        m_size--;
     }
 
     Node<T>* m_traverse_and_retrieve_node(int const index)
