@@ -32,6 +32,8 @@ public:
         m_buckets = new Bucket[m_capacity];
     }
 
+    // TODO: Implement the move constructors and assignment operators
+
     ~hash_table() { delete[] m_buckets; }
 
     unsigned size() const { return m_size; }
