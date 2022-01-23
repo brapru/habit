@@ -43,6 +43,20 @@ TEST(TestList, TestPushBack)
     EXPECT_EQ(test.back(), 5);
 }
 
+TEST(TestList, TestPushStrings)
+{
+    habit::list<std::string> test;
+
+    test.push_front("habit");
+    test.push_front("test");
+    test.push_back("strings");
+
+    EXPECT_EQ(test.size(), 3);
+    EXPECT_EQ(test.front(), "test");
+    EXPECT_EQ(test.contains("habit"), true);
+    EXPECT_EQ(test.back(), "strings");
+}
+
 TEST(TestList, TestAt)
 {
     habit::list<int> test;
