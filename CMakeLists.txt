@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_library (libhabit INTERFACE)
 target_include_directories(libhabit INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 
+set(CMAKE_BUILD_TYPE Debug)
+
 add_subdirectory(tests)
