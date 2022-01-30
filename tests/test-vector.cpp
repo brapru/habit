@@ -33,6 +33,18 @@ TEST(TestVector, TestPushBack)
     EXPECT_EQ(test.size(), 1);
 }
 
+TEST(TestVector, TestDoubles)
+{
+    habit::vector<double> test;
+
+    test.push_back(1.4);
+    test.push_back(4.2);
+    test.push_back(9.7);
+
+    EXPECT_EQ(test.front(), 1.4);
+    EXPECT_EQ(test.back(), 9.7);
+}
+
 TEST(TestVector, TestLargePushBack)
 {
     habit::vector<int> test;
