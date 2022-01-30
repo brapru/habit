@@ -27,13 +27,13 @@ public:
     {
     }
 
-    T& operator[](T index)
+    T& operator[](int const& index)
     {
         assert(index >= 0 && index < size());
         return m_data[index];
     }
 
-    const T& operator[](T index) const
+    const T& operator[](int const& index) const
     {
         assert(index >= 0 && index < size());
         return m_data[index];
@@ -43,7 +43,7 @@ public:
     unsigned capacity() const { return m_data ? m_capacity : 0; }
     bool is_empty() const { return size() == 0; }
 
-    T at(int index) { return m_data[index]; }
+    T at(int const& index) { return m_data[index]; }
     T front(void) { return m_data[0]; }
     T back(void) { return m_data[m_size - 1]; }
 
@@ -61,7 +61,7 @@ public:
         m_data[m_size].~T();
     }
 
-    void insert(int index, T value)
+    void insert(int const& index, T value)
     {
         assert(index >= 0 && index < size());
 
