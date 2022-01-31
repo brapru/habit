@@ -22,3 +22,17 @@ TEST(TestBubble, TestSorted)
         EXPECT_EQ((test[i] <= test[i + 1]), true);
     }
 }
+
+TEST(TestBubble, TestDouble)
+{
+    habit::vector<double> test;
+    for (double loop = 10; loop >= 0; loop--) {
+        test.push_back(loop / .12345);
+    }
+
+    bubble_sort(test);
+
+    for (int i = 0; i < test.size() - 1; i++) {
+        EXPECT_EQ((test[i] <= test[i + 1]), true);
+    }
+}
